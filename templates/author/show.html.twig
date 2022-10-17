@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author{% endblock %}
+
+{% block body %}
+    <h1>Author</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ author.id }}</td>
+            </tr>
+            <tr>
+                <th>AuthotName</th>
+                <td>{{ author.authotName }}</td>
+            </tr>
+            <tr>
+                <th>CreationDate</th>
+                <td>{{ author.creationDate ? author.creationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdationDate</th>
+                <td>{{ author.updationDate ? author.updationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_author_index') }}">back to list</a>
+
+    <a href="{{ path('app_author_edit', {'id': author.id}) }}">edit</a>
+
+    {{ include('author/_delete_form.html.twig') }}
+{% endblock %}
